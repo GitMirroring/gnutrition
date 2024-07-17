@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-#
 #  GNUtrition - a nutrition and diet analysis program.
-#  Copyright (C) 2001-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010, 2024 Free Software Foundation, Inc.
+#  Copyright (C) 2001 Edgar Denny (e.denny@ic.ac.uk)
+#  Copyright (C) 2010 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,14 +15,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This file is installed as $(prefix)/bin/gnutrition and 
+prefix      = /usr/local
+exec_prefix = ${prefix}
+bindir      = ${exec_prefix}/bin
+datadir     = ${datarootdir}/gnutrition
+datarootdir = ${prefix}/share
+INSTALL     = /usr/bin/install -c
 
-import sys, os
 
-gtdir = os.path.dirname(__file__)
 
-os.chdir(os.path.abspath(os.path.sep.join( (gtdir + "/..", "share", "gnutrition") )) )
-a=os.path.abspath('.')
-sys.path.append(os.path.abspath(a))
+all:
 
-import src.run_app
+install:
+	mkdir -p ${datadir}/pixmaps
+	${INSTALL} -m 644 -c *.png ${datadir}/pixmaps
+
+uninstall:
+	rm -f ${datadir}/pixmaps/*.png
+	rm -rf ${datadir}/pixmaps
+
+clean:

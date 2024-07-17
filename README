@@ -1,7 +1,6 @@
-
 GENERAL INFORMATION
 
-    This is version 0.32.1 of GNUTRITION, a recipe and food nutritional
+    This is version 0.32.2 of GNUTRITION, a recipe and food nutritional
     analysis application for GNOME.
 
     GNUtrition can be found on the main GNU FTP server:
@@ -28,4 +27,5 @@ INSTALLATION
 
 HOW TO REPORT BUGS & CONTACT THE MAINTAINER
 
-    Visit http://www.gnu.org/software/gnutrition/
+    Bugs may get reported to https://lists.gnu.org/mailman/listinfo/bug-gnutrition
+    For more information, visit http://www.gnu.org/software/gnutrition/

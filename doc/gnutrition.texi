@@ -1,0 +1,240 @@
+\input texinfo   @c -*-texinfo-*-
+@comment %**start of header
+@include version.texi
+@settitle GNUtrition @value{VERSION}
+@syncodeindex pg cp
+@comment %**end of header
+@copying
+This manual is for GNUtrition (version @value{VERSION},
+@value{UPDATED}), which is an example in the Texinfo documentation.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+@end quotation
+@end copying
+
+@dircategory Texinfo documentation system
+@direntry
+* sample: (sample)Invoking sample.
+@end direntry
+
+@titlepage
+@title GNUtrition
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author Anton McClure @email{asm@@gnu.org,<asm@@gnu.org>}
+@author Ian Haywood
+@author Edgar Denny
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@node Top
+@top GNUtrition
+
+This manual is for GNUtrition (version @value{VERSION},
+@value{UPDATED}).
+
+Copyright (C) 2001 Ian Haywood
+
+Copyright (C) 2010, 2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections no Front-Cover Texts, and with no Back-Cover Texts.
+
+A copy of the license is included in the section entitled "GNU Free
+Documentation License".
+
+This manual is derived from the manual for GNUtrition 0.32.0 and older
+by Ian Haywood and Edgar Denny.
+
+@node Introduction
+@chapter Introduction
+
+GNUtrition is a program designed to produce a detailed nutritional
+analysis of the human diet.
+
+@node Downloading GNUtrition
+@section Downloading GNUtrition
+
+GNUtrition can be found on the main GNU ftp server:
+@url{http://ftp.gnu.org/gnu/gnutrition/} (via HTTP/HTTPS) and
+@url{ftp://ftp.gnu.org/gnu/gnutrition/} (via FTP). It can also be
+found on the @url{http://www.gnu.org/prep/ftp.html,GNU mirrors};
+please @url{http://ftpmirror.gnu.org/gnutrition/,use a mirror} if
+possible.
+
+@node Requirements
+@subsection Requirements
+
+GNUtrition requires the Python Scripting Language, GNOME Environment,
+Python-to-GNOME libraries (pygnome, pygtk) and SQLite Database server.
+Starting with version 0.32.0, MySQL was no longer used.
+
+@node Running GNUtrition for the First Time
+@section Running GNUtrition for the First Time
+
+You may start GNUtrition from the command line with:
+
+@smallexample
+@group
+$ gnutrition
+@end group
+@end smallexample
+
+@node Installing the Database
+@subsection Installing the Database
+
+When GNUtrition starts for the first time, it will install its
+nutrient database.  This may take a short time, due to the size of the
+database.
+
+@node Entering your Information
+@subsection Entering your Information
+
+Once that is done, it will then ask for some personal details for
+calculating dietary requirements.  This information includes your age,
+weight, and sex.  For females, this includes physiology such as
+pregnant or lactating.
+
+GNUtrition will then move to the main screen.
+
+@node The Main Window
+@chapter The Main Window
+
+On the left hand side, three icons are visible for the three modes:
+
+@b{Daily Record.} List of foods eaten in a day, to calculate total
+intake.
+
+@b{Recipe.} Views a particular recipe.
+
+@b{Food.} Analyses a Single Food
+
+@node The Single Food
+@section The Single Food
+
+The Single Food screen is good place to start. By clicking in the
+``single banana'' icon, a screen asking for the food, amount, and
+measurement unit is displayed.  From here, you can see the amount of
+macronutrients, micronutrients, amino acids, fats, and other details
+about the food.
+
+This allows you to enter a particular food and receive a report about
+its nutrient content.
+
+@node Searching for a Food
+@subsection Searching for a Food
+
+GNUtrition can only analyse the foods present in its database. Press
+the ``Search'' button, to show the search window asking for a food
+group, and the food name text to match.  This search uses regular
+expressions.
+
+As the box shows, you may search by the text name or by the nutrient
+content.
+
+@node Search by Text
+@subsubsection Search by Text
+
+In this example, I searched by the word ``apple'' The database
+produces dozens of options for this word, such as ``Babyfood, fruit,
+applesauce, strained'', or ``Pie, apple, prepared from recipe'' This
+are displayed in a tree format, with the first word forming the
+header, the second the sub-header, etc. You must explore the tree to
+find the one you what, cicking on the little pluses, explodes the
+sub-hierarchy of foods. In this example I selected the food Apples >
+raw > with skin, so the Selected Food box would read: ``Apples, raw,
+with skin''.
+
+@node Search by Nutrient Value
+@subsubsection Search by Nutrient Value
+
+In the ``Search'' window, ``Nutrient Search'' can be selected:.  This
+asks for the food groups, to maximize/minimize nutrient composition
+per various measurement units, the number of foods to list, along with
+the nutrients to maximize and minimize.  Both the maximize and
+minimize section asks for the name of the nutrient and constraints.
+
+Foods are selected by their nutrient content. ``Content'' can be
+assessed by grams (weight), or calories (energy).
+
+You can maximise nutrients, selecting foods rich in those nutrients,
+or minimise nutrients, selecting foods low in that nutrient.
+
+The ``constraint'' refers to a weighting given to each nutrient in
+computing its score. So nutrient with a constraint of 3 will be three
+times as important in calculating the score, as one with a constraint
+of 1.
+
+The minimised nutrients have a negative constraint, as they subtract
+from the score. The search gives the foods with the highest score by
+this method.
+
+The foods are displayed in a tree as for the ``Search by Name'' box.
+
+@node Back to The Main Window
+@subsection Back to The Main Window
+
+When you have found the food you what, press the ``OK'' button, and
+you will return to the main screen with your food selected.
+
+You must first select the unit you are measuring in, in this case I
+have selected "large" (i.e. large apple), and the amount, in this case
+one.
+
+Results are then shown for lots of nutrients. Different classes of
+nutrients are selected by the tabs ``Macro-nutrients'', ``Minerals'',
+etc. The percentage of RDI (recommended daily intake) is also
+displayed for the nutrients based on your height and weight as entered
+when you first ran the program.
+
+To understand what all these mean, refer to the Nutrient Notes.
+
+@node The Recipe
+@section The Recipe
+
+The Recipe screen is for entering a list of foods and their quantities.
+
+The foods are entered as described above. After you have entered all the foods in the recipe, you can press on the ``Compute'' icon, a nutrient report for the whole recipe is produced, again similar in format to a single food.
+
+Recipes can be saved to disk to form a collection of recipes, by pressing on the ``Save'' icon. make sure you give the recipe a name and a category. These saved recipes can be retrieved by typing in the name int the ``Recipe Name'' box and pressing Search.
+
+@node Submitting a Recipe
+@subsection Submitting a Recipe
+
+Recipes can also be saved to a central repository at by clicking on
+the ``Submit'' icon. I urge you to do this whenever you create a
+recipe. This way, a reasonable collection of recipes can be included
+with later versions of the program. Before you submit, you must click
+through a copyright warning, to allow the recipes to be included in
+future versions. Please do not submit copyrighted recipes!
+
+@node The Daily Record
+@section The Daily Record
+
+For the seriously keen, you can enter in the computer every food you
+eat at various times of the day, and GNUtrition will calculate the
+total nutrient intake you have for that day.
+
+As with the Recipe screen, multiple foods are entered, corresponding
+to the time of day eaten, and a total recipe intake for the day is
+calculated.
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+
+@include fdl.texi
+
+@printindex cp
+
+@bye

@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-#
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright (C) 2001-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010, 2024 Free Software Foundation, Inc.
+#  Copyright (C) 2010 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,14 +15,31 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This file is installed as $(prefix)/bin/gnutrition and 
+prefix      = /usr/local
+exec_prefix = ${prefix}
+bindir      = ${exec_prefix}/bin
+datadir     = ${datarootdir}
+datarootdir = ${prefix}/share
+INSTALL     = /usr/bin/install -c
+srcdir      = ..
+pycomp      = ${srcdir}/py-compile
 
-import sys, os
 
-gtdir = os.path.dirname(__file__)
 
-os.chdir(os.path.abspath(os.path.sep.join( (gtdir + "/..", "share", "gnutrition") )) )
-a=os.path.abspath('.')
-sys.path.append(os.path.abspath(a))
+all:
+	chmod +x ${pycomp}
+	${pycomp} *.py
 
-import src.run_app
+install: util
+	mkdir -p ${datadir}/gnutrition/src
+	${INSTALL} -m 644 -c *.py *.pyc *.pyo ${datadir}/gnutrition/src
+
+util: 
+	$(MAKE) -c util install
+
+clean:
+	rm -f *.py[oc] util/*.py[oc]
+
+uninstall:
+	rm -f ${datadir}/gnutrition/src/*.py ${datadir}/gnutrition/src/*.pyo
+	rm -rf ${datadir}/gnutrition/src

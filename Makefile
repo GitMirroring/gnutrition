@@ -15,16 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-prefix		= @prefix@
-exec_prefix	= @exec_prefix@
-bindir		= @bindir@
-datadir		= @datadir@/@PACKAGE@
-datarootdir 	= @datarootdir@
-INSTALL		= @INSTALL@
-DISTNAME	= @PACKAGE@-@VERSION@
-PYTHON		= @PYTHON@
+prefix		= /usr/local
+exec_prefix	= ${prefix}
+bindir		= ${exec_prefix}/bin
+datadir		= ${datarootdir}/gnutrition
+datarootdir 	= ${prefix}/share
+INSTALL		= /usr/bin/install -c
+DISTNAME	= gnutrition-@VERSION@
+PYTHON		= /usr/bin/python
 
-@SET_MAKE@
+
 
 SUBDIRS = src src/util data pixmaps rpm debian # doc
 

@@ -1,0 +1,16 @@
+@numchapentry{Introduction}{1}{Introduction}{1}
+@numsecentry{Downloading GNUtrition}{1.1}{Downloading GNUtrition}{1}
+@numsubsecentry{Requirements}{1.1.1}{Requirements}{1}
+@numsecentry{Running GNUtrition for the First Time}{1.2}{Running GNUtrition for the First Time}{1}
+@numsubsecentry{Installing the Database}{1.2.1}{Installing the Database}{1}
+@numsubsecentry{Entering your Information}{1.2.2}{Entering your Information}{1}
+@numchapentry{The Main Window}{2}{The Main Window}{2}
+@numsecentry{The Single Food}{2.1}{The Single Food}{2}
+@numsubsecentry{Searching for a Food}{2.1.1}{Searching for a Food}{2}
+@numsubsubsecentry{Search by Text}{2.1.1.1}{Search by Text}{2}
+@numsubsubsecentry{Search by Nutrient Value}{2.1.1.2}{Search by Nutrient Value}{2}
+@numsubsecentry{Back to The Main Window}{2.1.2}{Back to The Main Window}{3}
+@numsecentry{The Recipe}{2.2}{The Recipe}{3}
+@numsubsecentry{Submitting a Recipe}{2.2.1}{Submitting a Recipe}{3}
+@numsecentry{The Daily Record}{2.3}{The Daily Record}{3}
+@appentry{GNU Free Documentation License}{A}{GNU Free Documentation License}{4}

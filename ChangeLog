@@ -1,3 +1,27 @@
+2024-07-17  Anton McClure <asm@gnu.org>
+
+        * ChangeLog
+        * Makefile.in
+        * README
+        * autogen.sh
+        * configure.in
+        * doc/Makefile.in
+        * doc/gnutrition.sgml
+        * doc/topic.dat
+        * gnutrition.desktop
+        * missing
+        * run-gnutrition.py
+        * src/base_win_ui.py
+        * src/install.py.in
+
+        Backported fix to bug where GNUtrition starting depended on your current working directory.
+
+        Renamed configure.in to configure.ac, as per the warning when running autoconf.
+
+        Documentation is now generated from TexInfo.
+
+        Added "health" category to gnutrition.desktop file.
+
 2013-03-27  Adam Rakowski <foo-script@o2.pl>
 
         * src/config.py

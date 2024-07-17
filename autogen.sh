@@ -6,7 +6,7 @@ test -z "$srcdir" && srcdir=.
 
 PKG_NAME="gnutrition"
 
-(test -f $srcdir/configure.in) || {
+(test -f $srcdir/configure.ac) || {
 	echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
 	echo " top-level directory"
 	exit 1
@@ -36,7 +36,7 @@ xlc )
   am_opt=--include-deps;;
 esac
 
-for coin in `find $srcdir -name configure.in -print`
+for coin in `find $srcdir -name configure.ac -print`
 do 
   dr=`dirname $coin`
   if test -f $dr/NO-AUTO-GEN; then

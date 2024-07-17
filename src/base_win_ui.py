@@ -1,6 +1,6 @@
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright(C) 2000 - 2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+#  Copyright (C) 2010, 2012, 2024 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -84,7 +84,7 @@ National Nutrient Database for Standard Reference.
 Current database version is SR{1:s}, {2:s}.
  
 (C) 2002 Edgar Denny
-(C) 2010 2012 Free Software Foundation, Inc.
+(C) 2010, 2012, 2024 Free Software Foundation, Inc.
 
 http://www.gnu.org/software/gnutrition/""".format(gnutr_version(),
                                                   get_value('sr'),
