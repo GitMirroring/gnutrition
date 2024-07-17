@@ -5,14 +5,34 @@
         * README
         * autogen.sh
         * configure.in
+        * .gitignore
+        * Makefile
+        * configure.ac
+        * data/Makefile
+        * debian/Makefile
         * doc/Makefile.in
+        * doc/fdl.texi
+        * doc/gendocs_template
+        * doc/gnutrition.aux
+        * doc/gnutrition.cp
+        * doc/gnutrition.cps
+        * doc/gnutrition.info
         * doc/gnutrition.sgml
+        * doc/gnutrition.texi
+        * doc/gnutrition.toc
         * doc/topic.dat
         * gnutrition.desktop
         * missing
         * run-gnutrition.py
         * src/base_win_ui.py
         * src/install.py.in
+        * doc/version.texi
+        * pixmaps/Makefile
+        * rpm/Makefile
+        * rpm/gnutrition.spec
+        * src/Makefile
+        * src/install.py
+        * src/util/Makefile
 
         Backported fix to bug where GNUtrition starting depended on your current working directory.
 
