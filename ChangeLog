@@ -1,3 +1,19 @@
+2026-01-14  Anton McClure <asm@gnu.org>
+
+	* configure.ac
+        * src/install.py.in
+        * .gitignore
+
+	Renamed configure.in to configure.ac.
+
+	Resolved errors with configure.ac for Python 3 and wxPython,
+	replacing the obsolete Python2 and pygtk requirements.
+
+	Simplified how version strings are managed in configure.ac and
+	src/install.py.in.
+
+	Added files created by autoconf to new .gitignore file.
+
 2013-03-27  Adam Rakowski <foo-script@o2.pl>
 
         * src/config.py

@@ -1,5 +1,5 @@
 # Copyright (C) 2000, 2001, 2002 Edgar Denny
-# Copyright (C) 2010, 2012 Free Software Foundation, Inc.
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This file is part of GNUtrition.
 # 
@@ -17,26 +17,21 @@
 # along with GNUtrition.  If not, see <http://www.gnu.org/licenses/>.
 
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/run_app.py)
+AC_INIT
+AC_CONFIG_SRCDIR([src/run_app.py])
 
 PACKAGE=gnutrition
 AC_SUBST(PACKAGE)
 
-MAJOR_VERSION=0
-MINOR_VERSION=32
-REVISION=1
-GNUTR_VERSION="0.32.1"
-AC_SUBST(MAJOR_VERSION)
-AC_SUBST(MINOR_VERSION)
-AC_SUBST(REVISION)
+GNUTR_VERSION="0.33.0_DEV"
 AC_SUBST(GNUTR_VERSION)
 
 dnl Get the default Python
-AC_PATH_PROG(PYTHON, python)
+AC_PATH_PROG(PYTHON, python3)
 AC_SUBST(PYTHON)
 
-dnl Checking for Python >= 2.6
-AC_MSG_CHECKING(for python >= 2.6)
+dnl Checking for Python >= 3.9
+AC_MSG_CHECKING(for python3 >= 3.9)
 
 prog1="
 import sys
@@ -48,8 +43,8 @@ prog2="
 import sys
 "
 
-if $PYTHON -c "$prog1" 1>&AC_FD_CC 2>&AC_FD_CC
-then  
+if $PYTHON -c "$prog1" 1>&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
+then
     dnl The default Python path is 2.6 or higher.
     AC_MSG_RESULT(yes)
 else
@@ -59,8 +54,8 @@ else
 fi
 
 changequote(, )
-PYTHON_VERSION=`$PYTHON -c "import sys; print sys.version[:3]"`
-PYTHON_PREFIX=`$PYTHON -c "import sys; print sys.prefix"`
+PYTHON_VERSION=`$PYTHON -c "import sys; print(sys.version[:3])"`
+PYTHON_PREFIX=`$PYTHON -c "import sys; print(sys.prefix)"`
 PYTHON_SITE_DIR=$PYTHON_PREFIX/lib/python$PYTHON_VERSION/site-packages
 changequote([, ])
 AC_SUBST(PYTHON_VERSION)
@@ -70,24 +65,25 @@ AC_SUBST(PYTHON_SITE_DIR)
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
-dnl Check if python bindings for gtk are installed
-AC_MSG_CHECKING(for pygtk)
+dnl Check if wxPython bindings are installed
+AC_MSG_CHECKING(for wxpython)
 prog3="
 import sys
 try:
-    import gtk
+    import wx
 except ImportError:
     sys.exit(1)
 sys.exit(0)"
-if $PYTHON -c "$prog3" 1>&AC_FD_CC 2>&AC_FD_CC
+
+if $PYTHON -c "$prog3" 1>&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
 then  
     AC_MSG_RESULT(yes)
 else
     AC_MSG_ERROR([
-**** The python interpreter can't find the python bindings for gtk.])
+**** The python interpreter can't find the python3 bindings for wxPython.])
 fi
 
-AC_OUTPUT( src/install.py\
+AC_CONFIG_FILES([src/install.py\
 	Makefile\
 	src/Makefile\
 	src/util/Makefile\
@@ -96,4 +92,5 @@ AC_OUTPUT( src/install.py\
 	doc/Makefile\
 	rpm/Makefile\
 	rpm/gnutrition.spec\
-	debian/Makefile)
+	debian/Makefile])
+AC_OUTPUT

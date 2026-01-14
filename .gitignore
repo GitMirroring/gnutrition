@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+autom4te.cache
+config.log
+config.status
+configure
+doc/gnutrition.log
+Makefile
+rpm/gnutrition.spec
+src/install.py
