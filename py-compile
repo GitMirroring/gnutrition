@@ -2,7 +2,7 @@
 # called as "py-compile [--basedir DIR] PY_FILES ...
 
 if [ -z "$PYTHON" ]; then
-  PYTHON=python
+  PYTHON=python3
 fi
 
 basedir=
