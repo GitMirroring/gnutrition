@@ -19,6 +19,7 @@
 
 # This file is installed as $(prefix)/bin/gnutrition and 
 
+from __future__ import absolute_import
 import sys, os
 
 os.chdir(os.path.abspath(os.path.sep.join( ('..', 'share', 'gnutrition') )) )

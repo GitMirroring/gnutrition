@@ -14,13 +14,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from __future__ import absolute_import
 import sqlite3 as dbms
 import datetime, time
 import re
-import config
-from util.utility import stdout, stderr, func
-from util.exception import AppException, AppFileReadError
-from util.log import LOG as log
+from . import config
+from .util.utility import stdout, stderr, func
+from .util.exception import AppException, AppFileReadError
+from .util.log import LOG as log
 debug = log.debug
 info = log.info
 warn = log.warn
@@ -111,7 +112,7 @@ class Database:
             con.create_function('REGEXP', 2, regexp)
             con.create_function('TO_DAYS', 1, to_days)
             cur = con.cursor()
-        except self.Error, e:
+        except self.Error as e:
             "Error {0:s}:".format(e.args[0])
             raise self.Error
         self.con = con
@@ -340,7 +341,7 @@ class Database:
                 self.cur.execute(sql)
             self.con.commit()
             result = self.cur.fetchall()
-        except self.Error, sqlerr:
+        except self.Error as sqlerr:
             self.con.rollback()
             excp = SQLiteQueryError("{0:s}\n\tquery: {1:s}".format(sqlerr, sql))
             if caller:
@@ -405,7 +406,7 @@ class Database:
         import csv
         try:
             data = csv.reader(open(data_fn,'r'), delimiter='^', quotechar="'")
-        except Exception, e:
+        except Exception as e:
             e = AppFileReadError(e)
             e = e + "Failed to read data file '{0:s}'".format(data_fn)
             raise e
@@ -573,7 +574,7 @@ def migrate(mysql):
     """Retrieve gnutrition table data from MySQL database.
     Parameters uname and pword are the MySQL username and password used with
     the older version of GNUtritin."""
-    from gnutr import Dialog
+    from .gnutr import Dialog
     lite = Database()
 
     # Need to check for tables: recipe, ingredient, preparation
@@ -740,7 +741,7 @@ def migrate(mysql):
     return True
 #---------------------------------------------------------------------------
 if __name__ == '__main__':
-    from util.log import init_logging
+    from .util.log import init_logging
     init_logging('/dev/null', logto='console', level='info')
     info('curdate: {0:s}'.format(curdate()))
     info('curtime: {0:s}'.format(curtime()))

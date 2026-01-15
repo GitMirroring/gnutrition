@@ -14,6 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from __future__ import absolute_import
 import pygtk
 pygtk.require("2.0")
 import gtk, gobject
@@ -71,7 +72,7 @@ class DruidPage:
         # User Setup
         # Personal Details
         elif page_num == 3:
-            import config
+            from . import config
             self.timer = 0
             table1 = gtk.Table(3, 7, False)
             table1.set_row_spacings(5)

@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+from __future__ import absolute_import
+from __future__ import print_function
 from exception import AppException, format_buffer, string_truncate
 from utility import stdout, stderr
 
@@ -20,13 +22,13 @@ e += explain
 stdout('string_truncate(80)\n')
 show_result(string_truncate(explain, 80))
 
-print '----------------------------------------------------------------'
+print('----------------------------------------------------------------')
 
 stdout('string_truncate(60)\n')
 show_result(string_truncate(explain, 60))
 
-print '-------------stdout(Exception) ----------------------'
+print('-------------stdout(Exception) ----------------------')
 stdout(e)
 
-print '-------------raise Exception ----------------------'
+print('-------------raise Exception ----------------------')
 raise e

@@ -15,13 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
 
-import config
-import base_win_ui
-import plan_win
-import recipe_win
-import food_win
+from . import config
+from . import base_win_ui
+from . import plan_win
+from . import recipe_win
+from . import food_win
 
 class BaseWin:
     def __init__(self, app):

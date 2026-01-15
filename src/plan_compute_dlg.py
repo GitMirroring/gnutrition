@@ -15,13 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import string
 import gtk
-import plan_compute_dlg_ui
-import gnutr
-import gnutr_consts
-import database
-import help
+from . import plan_compute_dlg_ui
+from . import gnutr
+from . import gnutr_consts
+from . import database
+from . import help
 
 class PlanComputeDlg:
     def __init__(self, app):
@@ -64,7 +65,7 @@ class PlanComputeDlg:
             avg = self.ui.avg_rad_button.get_active()
             result = self.compute(start_date, end_date, avg)
             if not hasattr(self, 'nutr_composition_dlg'):
-                import nutr_composition_dlg
+                from . import nutr_composition_dlg
                 self.nutr_composition_dlg = \
                     nutr_composition_dlg.NutrCompositionDlg()
             self.nutr_composition_dlg.show(nutr_list=result)
@@ -99,7 +100,7 @@ class PlanComputeDlg:
 
     def initialize_tot_list(self):
         if not hasattr(self, 'store'):
-            import store
+            from . import store
             self.store = store.Store()
         tot_list = []
         for nutr_no in self.store.nutr_num_list:
@@ -111,7 +112,7 @@ class PlanComputeDlg:
         days_start = self.db.get_single_result()
         self.db.query("SELECT TO_DAYS('%s')" %(end_date))
         days_end = self.db.get_single_result()
-        days_diff = float(days_end - days_start + 1L)
+        days_diff = float(days_end - days_start + 1)
         for i in range(len(tot_list)):
             nutr_no, nutr_val = tot_list[i]
             avg = nutr_val / days_diff

@@ -15,6 +15,7 @@
 
 """Exception class.
 """
+from __future__ import absolute_import
 from os import environ
 import string
 
@@ -76,7 +77,7 @@ def format_buffer(ebuf, col=60):
     COLUMNS if available. Otherwise a conservative width of no more than 60
     characters will be used.
     """
-    if environ.has_key('COLUMNS'):
+    if 'COLUMNS' in environ:
         txtwid = int(environ['COLUMNS']) - 2
     else:
         txtwid = col - 2

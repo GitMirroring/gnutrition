@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
 from install import gnutr_version
-from config import get_value
+from .config import get_value
 
-import gnutr_stock
-import gnutr_widgets
+from . import gnutr_stock
+from . import gnutr_widgets
 
 class BaseWinUI:
     def __init__(self):

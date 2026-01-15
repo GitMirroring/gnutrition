@@ -16,12 +16,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import os
 import stat
 import gtk
 
-import save_as
-import gnutr_widgets
+from . import save_as
+from . import gnutr_widgets
 
 class FileSelectDlg:
     def __init__(self):

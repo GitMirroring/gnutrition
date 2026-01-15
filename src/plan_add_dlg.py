@@ -16,12 +16,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import gtk
-import plan_add_dlg_ui
-import gnutr_consts
-import food_srch_dlg
-import recipe_srch_dlg
-import help
+from . import plan_add_dlg_ui
+from . import gnutr_consts
+from . import food_srch_dlg
+from . import recipe_srch_dlg
+from . import help
 
 class PlanAddDlg:
     def __init__(self, app):
@@ -62,14 +63,14 @@ class PlanAddDlg:
 
         elif r == gtk.RESPONSE_OK:
             if not hasattr(self, 'recipe_srch_res_dlg'):
-                import recipe_srch_res_dlg
+                from . import recipe_srch_res_dlg
                 self.recipe_srch_res_dlg = \
                     recipe_srch_res_dlg.RecipeSrchResDlg(self.app)
                 self.recipe_srch_res_dlg.ui.dialog.connect('hide', 
                     self.on_hide)
 
             if not hasattr(self, 'food_srch_res_dlg'):
-                import food_srch_res_dlg
+                from . import food_srch_res_dlg
                 self.food_srch_res_dlg = \
                     food_srch_res_dlg.FoodSrchResDlg(self.app)
                 self.food_srch_res_dlg.ui.dialog.connect('hide', 

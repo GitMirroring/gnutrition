@@ -15,9 +15,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-import config
+from __future__ import absolute_import
+from . import config
 import gtk
-from util.log import init_logging
+from .util.log import init_logging
 
 class RunApp:
     def __init__(self):
@@ -27,9 +28,9 @@ class RunApp:
         self.first_run = not config.get_value('sqlite3')
         if self.first_run:
             # First run, program default values can be added here
-            import druid
+            from . import druid
             # Set default version check information
-            import gnutr_consts
+            from . import gnutr_consts
             config.set_key_value('sqlite3', 'Yes')
             config.set_key_value('check_disabled', gnutr_consts.CHECK_DISABLED)
             config.set_key_value('check_version', gnutr_consts.CHECK_VERSION)
@@ -42,26 +43,26 @@ class RunApp:
             self.startup()
 
     def startup(self):
-        import version
+        from . import version
         version.check_version()
 
-        import database 
+        from . import database 
         self.db = database.Database()
 
-        import store
+        from . import store
         self.store = store.Store()
 
-        import person
+        from . import person
         self.person = person.Person()
         self.person.setup()
 
-        import base_win
+        from . import base_win
         self.base_win = base_win.BaseWin(self)
         self.base_win.show()
 
     def shutdown(self):
         if not self.first_run:          #otherwise, after first run empty db would be created. Smells like program crash in future
-            import database 
+            from . import database 
             db = database.Database()    #foo-script: Do we really need it at all?
             db.close()
         

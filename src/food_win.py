@@ -16,14 +16,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import gtk
 
-import food_win_ui
-import gnutr
-import gnutr_consts
-import store
-import nutr_composition_dlg
-import help
+from . import food_win_ui
+from . import gnutr
+from . import gnutr_consts
+from . import store
+from . import nutr_composition_dlg
+from . import help
 
 class FoodWin:
     def __init__(self, app, parent):
@@ -76,7 +77,7 @@ class FoodWin:
 
     def on_select_released(self, w, d=None):
         if not hasattr(self, 'food_srch_dlg'):
-            import food_srch_dlg
+            from . import food_srch_dlg
             self.food_srch_dlg = food_srch_dlg.FoodSrchDlg(self.app)
         self.food_srch_dlg.show(gnutr_consts.FOOD)
 
@@ -100,7 +101,7 @@ class FoodWin:
 
     def on_goals_released(self, w, d=None):
         if not hasattr(self, 'nutr_goal_dlg'):
-            import nutr_goal_dlg
+            from . import nutr_goal_dlg
             self.nutr_goal_dlg = nutr_goal_dlg.NutrGoalDlg()
         self.nutr_goal_dlg.show()
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 from os import path
 import logging
@@ -82,13 +84,13 @@ else:
     stdout('Should see "Parameter not a file or file object."\n')
 tests += 1
     
-print
+print()
 
 stdout("testing setLogLevel('warn'), should see only WARN: log test 2\n")
 setLogLevel("warn")
 log.debug("log test 2")
 log.warn("log test 2")
-print
+print()
 
 stdout("shutting down logger, reinitializing with log level 0\n")
 stdout("NullHander should prevent logger calls from generating warnings/errors.\n")

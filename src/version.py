@@ -14,8 +14,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with GNUtrition.  If not, see <http://www.gnu.org/licenses/>.
-import config
-from util.log import LOG as log
+from __future__ import absolute_import
+from __future__ import print_function
+from . import config
+from .util.log import LOG as log
 debug = log.debug
 info = log.info
 warn = log.warn
@@ -28,7 +30,7 @@ def get_latest_version(url):
     import re
     try:
         obj = urllib.urlopen(url)
-    except IOError, e:
+    except IOError as e:
         error("{0!r}".format(e))
         return "0.0" # Force update bypass
     reex = r"""
@@ -80,7 +82,7 @@ def cmp_version_strings(this_ver, curr_ver):
 
 def update_version(version, message=None):
     """Present user with dialog notification of available newer version."""
-    import gnutr
+    from . import gnutr
     msg = 'Version {0:s} of gnutrition is available.\n'.format(version)
     msg += 'Please visit http://www.gnu.org/software/gnutrition to download.\n'
     if message:
@@ -97,7 +99,7 @@ def unpack(archive):
 def get_database_archive(url):
     # HERE: Unfinished. Dropped working on automatic database update since it is
     #       updated once per year and updating would present permission errors.
-    import gnutr_consts
+    from . import gnutr_consts
     from urllib2 import Request, urlopen, URLError, HTTPError
     from os.path import basename, join
     success = 0
@@ -109,16 +111,16 @@ def get_database_archive(url):
         local_file = open(tmp_file, "wb")
         local_file.write(f.read())
         local_file.close()
-    except HTTPError, e:
+    except HTTPError as e:
         error("HTTP Error: {0!r} {1:s}".format(e.code, url))
         success = 1
-    except URLError, e:
+    except URLError as e:
         error("URL Error: {0!r} {1:s}".format(e.reason, url))
         success = 1
     return success
 
 def check_version():
-    import gnutr_consts
+    from . import gnutr_consts
     import install
     this_ver = install.gnutr_version()
     if config.get_value('check_disabled') or not config.get_value('check_version'):
@@ -144,19 +146,19 @@ def check_version():
 
 if __name__ == '__main__':
     def str_cmp_test():
-        print 'True ==', cmp_ver_strings("0.1", "0.2")
-        print 'True ==', cmp_ver_strings("0.1.1", "0.2")
-        print 'False ==', cmp_ver_strings("0.2.1", "0.2")
-        print 'False ==', cmp_ver_strings("0.2", "0.1")
-        print 'True ==', cmp_ver_strings("0.1", "0.2.1")
-        print 'True ==', cmp_ver_strings("0.1.1", "0.1.2")
-        print 'False ==', cmp_ver_strings("0.2.1", "0.2")
-    import gnutr_consts
+        print('True ==', cmp_ver_strings("0.1", "0.2"))
+        print('True ==', cmp_ver_strings("0.1.1", "0.2"))
+        print('False ==', cmp_ver_strings("0.2.1", "0.2"))
+        print('False ==', cmp_ver_strings("0.2", "0.1"))
+        print('True ==', cmp_ver_strings("0.1", "0.2.1"))
+        print('True ==', cmp_ver_strings("0.1.1", "0.1.2"))
+        print('False ==', cmp_ver_strings("0.2.1", "0.2"))
+    from . import gnutr_consts
     url = gnutr_consts.LATEST_VERSION
     (ver,sr,rel,sr_url,msg) = get_latest_version(url)
-    print 'latest version available:', ver
-    print 'SR:', sr
-    print 'release date:', rel
-    print 'SR URL:', sr_url
-    print 'version message:', msg
+    print('latest version available:', ver)
+    print('SR:', sr)
+    print('release date:', rel)
+    print('SR URL:', sr_url)
+    print('version message:', msg)
 

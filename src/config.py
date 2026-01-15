@@ -16,6 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
+from __future__ import print_function
 import shelve, install
 from os import environ, path, access, F_OK, mkdir, name
 
@@ -54,13 +56,13 @@ def delete_entry(key):
     db.close()
 
 def keys():
-    from util.utility import stdout
+    from .util.utility import stdout
     db = shelve.open(fn)
     for key in db.keys():
         stdout("{0:s}: {1!r}\n".format(key, db[key]))
     db.close()
 
 if __name__ == '__main__':
-    print 'Current keys in', fn
+    print('Current keys in', fn)
     keys()
-    print
+    print()

@@ -15,10 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with GNUtrition.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import unittest
 
 import gtk
-import gnutr_widgets
+from . import gnutr_widgets
 
 class TestGnutrComboBox(unittest.TestCase):
     def setUp(self):

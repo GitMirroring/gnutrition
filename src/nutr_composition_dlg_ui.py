@@ -15,10 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gobject
 import gtk
 
-import nutr_goal_dlg_ui
+from . import nutr_goal_dlg_ui
 
 class Nutrient:
     pass

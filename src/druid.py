@@ -16,17 +16,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 from time import sleep
 import gtk
 from gobject import idle_add
-import druid_ui
-import config
-import person
+from . import druid_ui
+from . import config
+from . import person
 import os
-import calc_rdi
-import database
-import nutr_goal_dlg
-from gnutr import Dialog
+from . import calc_rdi
+from . import database
+from . import nutr_goal_dlg
+from .gnutr import Dialog
 
 class Druid:
     def __init__(self, app):
@@ -58,7 +59,7 @@ class Druid:
         elif self.ui.page_num == 1:
             try:
                 self.sqlite = database.Database()
-            except Exception, ex:
+            except Exception as ex:
                 self.ui.set_page(2)
                 return
 
@@ -79,7 +80,7 @@ class Druid:
                 dialog.destroy()
                 if reply == gtk.RESPONSE_YES:
                     self.migration = True
-                    import mysql
+                    from . import mysql
                     self.mysql = mysql.open_mysqldb(db_uname, db_pword)
                     if self.mysql:
                         database.migrate(self.mysql)

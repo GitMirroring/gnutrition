@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
-import gnutr_consts
-import gnutr
-import food_edit_dlg_ui
-import store
-import help
+from . import gnutr_consts
+from . import gnutr
+from . import food_edit_dlg_ui
+from . import store
+from . import help
 
 class FoodEditDlg:
     def __init__(self, app):

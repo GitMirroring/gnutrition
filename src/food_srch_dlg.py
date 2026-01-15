@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
-import food_srch_dlg_ui
-import gnutr
-import store
-import database
-import help
+from . import food_srch_dlg_ui
+from . import gnutr
+from . import store
+from . import database
+from . import help
 
 # I can pass a class here nad check if it is plan, food, or recipe
 class FoodSrchDlg:
@@ -56,7 +57,7 @@ class FoodSrchDlg:
 
     def on_response(self, w, resp, d=None):
         if not hasattr(self, 'food_srch_res_dlg'):
-            import food_srch_res_dlg
+            from . import food_srch_res_dlg
             self.food_srch_res_dlg = \
             food_srch_res_dlg.FoodSrchResDlg(self.app)
             self.food_srch_res_dlg.ui.dialog.connect('hide', self.on_hide)

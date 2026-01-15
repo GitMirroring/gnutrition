@@ -15,9 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
+from __future__ import print_function
 import MySQLdb
-from util.exception import AppException
-from util.log import LOG as log
+from .util.exception import AppException
+from .util.log import LOG as log
 debug = log.debug
 info = log.info
 warn = log.warn
@@ -50,7 +52,7 @@ class Database:
     def query(self, query, caller=None):
         try:
             self.cursor.execute(query)
-        except MySQLdb.Error, sqlerr:
+        except MySQLdb.Error as sqlerr:
             excp = MySQLError('{0:s}\nquery: {1:s}'.format(sqlerr,query))
             error(excp)
             self.cursor.execute('SHOW ERRORS');
@@ -97,12 +99,12 @@ class Database:
         self.query("DROP DATABASE gnutr_db")
 
 def open_mysqldb(user=None, passwd=None):
-    from gnutr import Dialog
+    from .gnutr import Dialog
     db_uname, db_pword = None, None
     if user and passwd:
         db_uname, db_pword = user, passwd
     else:
-        import config
+        from . import config
         # Username and Password would be left over from MySQL versions
         # of GNUtrition.
         db_uname = config.get_value('Username')
@@ -124,8 +126,8 @@ def open_mysqldb(user=None, passwd=None):
 if __name__ == '__main__':
     import sys
     if open_mysqldb():
-        print 'Successful MySQL database test.'
+        print('Successful MySQL database test.')
     else:
-        print 'MySQL database test failed.', db
+        print('MySQL database test failed.', db)
         sys.exit(1)
     sys.exit(0)

@@ -15,12 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
+from __future__ import print_function
 import gtk
-import nutr_composition_dlg_ui
-import store
-import database
-import help
-from util.log import LOG as log
+from . import nutr_composition_dlg_ui
+from . import store
+from . import database
+from . import help
+from .util.log import LOG as log
 debug = log.debug
 info = log.info
 warn = log.warn
@@ -161,7 +163,7 @@ class NutrCompositionDlg:
 
     def compute_pcnt_nutr_goal(self):
         if not hasattr(self, 'person'):
-            import person
+            from . import person
             self.person = person.Person()
 
         person_num = self.person.get_person_num()
@@ -177,7 +179,7 @@ class NutrCompositionDlg:
             dict[num] = val
 
         list_pcnt_goal = []
-        print 'list_nutr_goal (nutr_composition_dlg.py):'
+        print('list_nutr_goal (nutr_composition_dlg.py):')
         for num, val in list_nutr_goal:
             #print 'num:', num, 'val:', val
             if val == 0.0:
@@ -187,7 +189,7 @@ class NutrCompositionDlg:
                     pcnt = dict[num] * 100.0 / val
                 except KeyError:
                     #DEBUG FIXME: why this error?
-                    print 'nutr_composition_dlg: line 186, key error', num  
+                    print('nutr_composition_dlg: line 186, key error', num)  
                     continue
             list_pcnt_goal.append((num, pcnt))
         return list_pcnt_goal

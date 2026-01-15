@@ -15,15 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gobject
 import gtk
 
-import recipe_srch_res_dlg_ui
-import gnutr
-import gnutr_consts
-import database
-import store
-import help
+from . import recipe_srch_res_dlg_ui
+from . import gnutr
+from . import gnutr_consts
+from . import database
+from . import store
+from . import help
 
 class RecipeSrchResDlg:
     def __init__(self, app):

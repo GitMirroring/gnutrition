@@ -18,6 +18,7 @@
 
 # taken from solfege by Tom Cato Amundsen <tca@gnu.org>
 
+from __future__ import absolute_import
 import os, sys, string
 
 prfx = "tmp/tmpgnutrition"

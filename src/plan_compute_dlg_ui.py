@@ -15,10 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gobject
 import gtk
 
-import date_widget
+from . import date_widget
 
 class PlanComputeDlgUI:
     def __init__(self):

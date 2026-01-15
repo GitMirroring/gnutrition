@@ -1,13 +1,63 @@
 2026-01-14  Anton McClure <asm@gnu.org>
 
 	* configure.ac
-        * src/install.py.in
         * .gitignore
 	* py-compile
+	* rpm/remove_prefix.py
+	* run-gnutrition.py
+	* src/base_win.py
+	* src/base_win_ui.py
+	* src/config.py
+	* src/database.py
+	* src/date_widget.py
+	* src/druid.py
+	* src/druid_ui.py
+	* src/file_select_dlg.py
+	* src/food_edit_dlg.py
+	* src/food_edit_dlg_ui.py
+	* src/food_srch_dlg.py
+	* src/food_srch_dlg_ui.py
 	* src/food_srch_res_dlg.py
+	* src/food_srch_res_dlg_ui.py
+	* src/food_win.py
+	* src/food_win_ui.py
+	* src/gnutr.py
+	* src/gnutr_stock.py
+	* src/gnutr_widgets.py
 	* src/help.py
+        * src/install.py.in
+	* src/mysql.py
+	* src/nutr_composition_dlg.py
+	* src/nutr_composition_dlg_ui.py
+	* src/nutr_goal_dlg.py
+	* src/nutr_goal_dlg_ui.py
+	* src/person.py
+	* src/plan_add_dlg.py
+	* src/plan_add_dlg_ui.py
 	* src/plan_compute_dlg.py
+	* src/plan_compute_dlg_ui.py
 	* src/plan_win.py
+	* src/plan_win_ui.py
+	* src/recipe_edit_dlg.py
+	* src/recipe_edit_dlg_ui.py
+	* src/recipe_srch_dlg.py
+	* src/recipe_srch_dlg_ui.py
+	* src/recipe_srch_res_dlg.py
+	* src/recipe_srch_res_dlg_ui.py
+	* src/recipe_win.py
+	* src/recipe_win_ui.py
+	* src/run_app.py
+	* src/save_as.py
+	* src/store.py
+	* src/test_gnutr_combobox.py
+	* src/util/exception.py
+	* src/util/log.py
+	* src/util/test/exception.py
+	* src/util/test/intrange.py
+	* src/util/test/log_levels.py
+	* src/util/test/validate_file.py
+	* src/util/utility.py
+	* src/version.py
 
 	Renamed configure.in to configure.ac.
 

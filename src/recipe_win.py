@@ -16,15 +16,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import gtk
 import string
-import recipe_win_ui
-import gnutr
-import gnutr_consts
-import store
-import database
-import help
-from util.log import LOG as log
+from . import recipe_win_ui
+from . import gnutr
+from . import gnutr_consts
+from . import store
+from . import database
+from . import help
+from .util.log import LOG as log
 debug = log.debug
 info = log.info
 warn = log.warn
@@ -84,11 +85,11 @@ class RecipeWin:
     def on_save_as_activate(self, w, d=None):
         recipe = self.get_recipe()
         if not hasattr(self, 'file_select_dlg'):
-            import file_select_dlg
+            from . import file_select_dlg
             self.file_select_dlg = file_select_dlg.FileSelectDlg()
         if recipe:
             if not hasattr(self, 'nutr_composition_dlg'):
-                import nutr_composition_dlg
+                from . import nutr_composition_dlg
                 self.nutr_composition_dlg = \
                     nutr_composition_dlg.NutrCompositionDlg()
             nutr_list = self.nutr_composition_dlg.compute_nutr_total(recipe)
@@ -97,7 +98,7 @@ class RecipeWin:
 
     def on_add_released(self, w, d=None):
         if not hasattr(self, 'food_srch_dlg'):
-            import food_srch_dlg
+            from . import food_srch_dlg
             self.food_srch_dlg = food_srch_dlg.FoodSrchDlg(self.app)
         self.food_srch_dlg.show(gnutr_consts.RECIPE)
 
@@ -108,7 +109,7 @@ class RecipeWin:
         else:
             ingr = treemodel.get_value(iter, 3)
             if not hasattr(self, 'food_edit_dlg'):
-                import food_edit_dlg
+                from . import food_edit_dlg
                 self.food_edit_dlg = food_edit_dlg.FoodEditDlg(self.app)
             self.food_edit_dlg.show(ingr, gnutr_consts.RECIPE)
 
@@ -125,7 +126,7 @@ class RecipeWin:
 
     def on_open_released(self, w, d=None):
         if not hasattr(self, 'recipe_srch_dlg'):
-            import recipe_srch_dlg
+            from . import recipe_srch_dlg
             self.recipe_srch_dlg = recipe_srch_dlg.RecipeSrchDlg(self.app)
         self.recipe_srch_dlg.show()
 
@@ -154,7 +155,7 @@ or is not a number.""", self.parent)
         if not r:
             return
         if not hasattr(self, 'nutr_composition_dlg'):
-            import nutr_composition_dlg
+            from . import nutr_composition_dlg
             self.nutr_composition_dlg = \
                 nutr_composition_dlg.NutrCompositionDlg()
         self.nutr_composition_dlg.show(recipe=r)
@@ -168,7 +169,7 @@ or is not a number.""", self.parent)
 
     def on_goal_released(self, w, d=None):
         if not hasattr(self, 'nutr_goal_dlg'):
-            import nutr_goal_dlg
+            from . import nutr_goal_dlg
             self.nutr_goal_dlg = nutr_goal_dlg.NutrGoalDlg()
         self.nutr_goal_dlg.show()
 

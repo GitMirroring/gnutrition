@@ -16,9 +16,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import gobject
 import gtk
-import gnutr_widgets
+from . import gnutr_widgets
 
 def MyImageMenuItem(label_text, stock_image):
     return gnutr_widgets.GnutrImageMenuItem(label_text, stock_image)

@@ -16,18 +16,19 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import string
 import time
 
 import gobject
 import gtk
 
-import plan_win_ui
-import gnutr
-import gnutr_consts
-import database
-import person
-import help
+from . import plan_win_ui
+from . import gnutr
+from . import gnutr_consts
+from . import database
+from . import person
+from . import help
 
 class PlanWin:
     def __init__(self, app, parent):
@@ -73,7 +74,7 @@ class PlanWin:
             gnutr.Dialog('warn', 'No time selected.', self.parent)
             return
         if not hasattr(self, 'plan_add_dlg'):
-            import plan_add_dlg
+            from . import plan_add_dlg
             self.plan_add_dlg = plan_add_dlg.PlanAddDlg(self.app)
         self.plan_add_dlg.show()
 
@@ -133,12 +134,12 @@ class PlanWin:
         data = model.get_value(iter, 4)
         if isinstance(data, gnutr.Ingredient):
             if not hasattr(self, 'food_edit_dlg'):
-                import food_edit_dlg
+                from . import food_edit_dlg
                 self.food_edit_dlg = food_edit_dlg.FoodEditDlg(self.app)
             self.food_edit_dlg.show(data, gnutr_consts.PLAN)
         elif isinstance(data, gnutr.Recipe):
             if not hasattr(self, 'recipe_edit_dlg'):
-                import recipe_edit_dlg
+                from . import recipe_edit_dlg
                 self.recipe_edit_dlg = recipe_edit_dlg.RecipeEditDlg(self.app)
             self.recipe_edit_dlg.show(data)
 
@@ -163,7 +164,7 @@ class PlanWin:
 
     def on_compute_released(self, w, d=None):
         if not hasattr(self, 'plan_compute_dlg'):
-            import plan_compute_dlg
+            from . import plan_compute_dlg
             self.plan_compute_dlg = plan_compute_dlg.PlanComputeDlg(self.app)
         self.plan_compute_dlg.show()
 
@@ -175,7 +176,7 @@ class PlanWin:
 
     def on_nutr_goal_activate(self, w, d=None):
         if not hasattr(self, 'nutr_goal_dlg'):
-            import nutr_goal_dlg
+            from . import nutr_goal_dlg
             self.nutr_goal_dlg = nutr_goal_dlg.NutrGoalDlg()
         self.nutr_goal_dlg.show()
 
@@ -290,7 +291,7 @@ class PlanWin:
 
     def get_foods_for_date(self, date):
         if not hasattr(self, 'store'):
-            import store
+            from . import store
             self.store = store.Store()
         self.db.query("SELECT time, amount, Msre_Desc, NDB_No " +
             "FROM food_plan_temp WHERE date = '{0:s}'".format(date))

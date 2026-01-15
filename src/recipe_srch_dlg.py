@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
-import recipe_srch_dlg_ui
-import gnutr_consts
-import gnutr
-import store
-import help
+from . import recipe_srch_dlg_ui
+from . import gnutr_consts
+from . import gnutr
+from . import store
+from . import help
 
 class RecipeSrchDlg:
     def __init__(self, app):
@@ -45,7 +46,7 @@ class RecipeSrchDlg:
                 return
 
             if not hasattr(self, 'recipe_srch_res_dlg'):
-                import recipe_srch_res_dlg
+                from . import recipe_srch_res_dlg
                 self.recipe_srch_res_dlg = \
                     recipe_srch_res_dlg.RecipeSrchResDlg(self.app)
                 self.recipe_srch_res_dlg.ui.dialog.connect('hide', 
@@ -59,7 +60,7 @@ class RecipeSrchDlg:
 
     def get_search_match(self):
         if not hasattr(self, 'db'):
-            import database
+            from . import database
             self.db = database.Database()
 
         cat_desc = self.ui.category_combo.get_active_text()

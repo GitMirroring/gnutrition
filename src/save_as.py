@@ -82,7 +82,7 @@ class SaveAs:
 
     def html(self, recipe, nutr_list, pcnt_cal, fn):
         self.nutr_list = nutr_list
-        f = file(fn, 'w')
+        f = open(fn, 'w')
         f.write(template1 %(recipe.desc, recipe.desc, recipe.num_serv))
         for ingr in recipe.ingr_list:
             f.write(template2 %(ingr.amount, ingr.msre_desc, ingr.food_desc))

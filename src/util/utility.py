@@ -17,12 +17,13 @@
 
 stdout and stderr are exported.
 """
+from __future__ import absolute_import
 import codecs, re, sys
 from os import path
 from datetime import date, datetime 
 from calendar import monthrange
 from inspect import currentframe  # for func()
-from exception import AppInternalError, AppParameterError
+from .exception import AppInternalError, AppParameterError
 class InternalWriteError(AppInternalError): pass
 
 def _write(write, obj, caller):
@@ -79,7 +80,7 @@ def func():
     frame = currentframe()
     return frame.f_back.f_code.co_name
 
-def limit_intrange(value, low=-sys.maxint-1, high=sys.maxint):
+def limit_intrange(value, low=-sys.maxsize-1, high=sys.maxsize):
     class RangeError(AppInternalError): pass
     if not high >= low:
         e = RangeError("high range must be >= low range")
@@ -147,12 +148,12 @@ def data_from_file(fname):
     try:
         with open(fname,'r') as f:
             data = f.read()
-    except OSError, e:
+    except OSError as e:
         data = None
         stderr('data_from_file: unable to read {0:s}, {1!s}\n'.format(fname,e))
     return data
 
-from exception import AppTypeError, AppFileOpenError,\
+from .exception import AppTypeError, AppFileOpenError,\
      AppFileModeError, AppFileReadError
 
 # various boolean tests related to files, file objects and file open mode.
@@ -232,7 +233,7 @@ def f_seekable(obj):
 def _fopen(obj, mode):
     try:
         f = open(obj, mode)
-    except OSError, e:
+    except OSError as e:
         err = "Unable to open object in mode '{0:s}'".foramt(mode)
         err += str(e)
         raise AppFileOpenError(err)
@@ -250,7 +251,7 @@ def _filesize(f):
     assert isfileobj(f)
     from os import SEEK_CUR, SEEK_END, SEEK_SET
     pos = f.tell()
-    f.seek(0L,SEEK_END)
+    f.seek(0,SEEK_END)
     end = f.tell()
     f.seek(pos, SEEK_SET)    # Return state to origional
     return end
@@ -319,19 +320,19 @@ def test_fileobj(f):
     """
     try:
         validate_file(f)
-    except AppTypeError, e:
+    except AppTypeError as e:
         stderr(e)
         return 1
-    except AppFileOpenError, e:
+    except AppFileOpenError as e:
         stderr(e)
         return 2
-    except AppFileModeError, e:
+    except AppFileModeError as e:
         stderr(e)
         return 3
-    except AppFileReadError, e:
+    except AppFileReadError as e:
         stderr(e)
         return 4
-    except Exception, e:
+    except Exception as e:
         stderr("Unknow exception: {0:s}\n".format(e))
         #raise
         return 5

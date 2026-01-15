@@ -15,10 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
-import recipe_edit_dlg_ui
-import gnutr
-import help
+from . import recipe_edit_dlg_ui
+from . import gnutr
+from . import help
 
 class RecipeEditDlg:
     def __init__(self, app):

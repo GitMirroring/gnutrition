@@ -25,9 +25,10 @@ Then, for example, log.info('whatever').
 This also will log Python exceptions.
 
 """
+from __future__ import absolute_import
 import logging, logging.handlers as handlers
 from os import path
-from exception import AppException
+from .exception import AppException
 
 class LogLevelError(AppException): pass
 class FileSystemAccessError(AppException): pass
@@ -173,14 +174,14 @@ def init_logging(logfile, **kwargs):
       'rotate'
     """
     from os.path import dirname, isdir
-    from utility import fopen_mode_ok, limit_intrange
+    from .utility import fopen_mode_ok, limit_intrange
     ld, ll, lr, lms, lc = True, 'warn', 3, 50000, False
     lf = logfile
     if not isdir(dirname(lf)):
         from os import mkdir
         try:
             mkdir(dirname(lf))
-        except OSError, e:
+        except OSError as e:
             raise FileSystemAccessError(e)
     if not fopen_mode_ok(lf, 'w'):
         emsg = 'This process does not have write permission in {0:s}'

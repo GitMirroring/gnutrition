@@ -16,11 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import
 import webbrowser
 import install
 import os
 import string
-from util.log import LOG as log
+from .util.log import LOG as log
 debug = log.debug
 info = log.info
 warn = log.warn

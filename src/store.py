@@ -16,7 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import database
+from __future__ import absolute_import
+from . import database
 
 class Store:
     _shared_state = {}

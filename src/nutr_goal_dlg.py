@@ -15,11 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import gtk
-import nutr_goal_dlg_ui
-import gnutr
-import person
-import help
+from . import nutr_goal_dlg_ui
+from . import gnutr
+from . import person
+from . import help
 
 class NutrGoalDlg:
     def __init__(self):
