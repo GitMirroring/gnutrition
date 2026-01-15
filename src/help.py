@@ -1,6 +1,6 @@
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2012 Free Software Foundation, Inc.
+#  Copyright (C) 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ error = log.error
 critical = log.critical
 
 def test_access(file):
-    path_list = string.split(os.environ['PATH'], ':')
+    path_list = files.split(os.environ['PATH'], ':')
     for p in path_list:
         if os.path.exists(p):
             a = os.access(p + '/' + file, os.F_OK | os.X_OK)

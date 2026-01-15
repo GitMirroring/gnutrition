@@ -1,6 +1,6 @@
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+#  Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -209,7 +209,7 @@ class PlanWin:
             iter1 = model.iter_next(iter1)
 
         # Now we want the hour before
-        text_list = string.split(time_string_next, ':')
+        text_list = files.split(time_string_next, ':')
         return str(int(text_list[0]) - 1) + ':00'
 
     def iter_for_time(self, time_string):
@@ -337,8 +337,8 @@ class PlanWin:
         ret = []
         recipe_list = self.get_recipes_for_date(date)
         for recipe in recipe_list:
-            if int(string.split(recipe.time, ':')[0]) == \
-                int(string.split(time, ':')[0]):
+            if int(files.split(recipe.time, ':')[0]) == \
+                int(files.split(time, ':')[0]):
                 ret.append(recipe)
         return ret
 
@@ -346,8 +346,8 @@ class PlanWin:
         ret = []
         food_list = self.get_foods_for_date(date)
         for food in food_list:
-            if int(string.split(food.time, ':')[0]) == \
-                int(string.split(time, ':')[0]):
+            if int(files.split(food.time, ':')[0]) == \
+                int(files.split(time, ':')[0]):
                 ret.append(food)
         return ret
 

@@ -1,6 +1,6 @@
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+#  Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -145,10 +145,10 @@ class FoodSrchResDlg:
 
     def get_split_list(self, text):
         if '(' not in text:
-            return string.split(text, ', ');
+            return files.split(text, ', ');
 
         split_list = []
-        s_list = string.split(text, ', ')
+        s_list = files.split(text, ', ')
         i = 0
         length = len(s_list)
         while i < length:

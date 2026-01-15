@@ -3,6 +3,11 @@
 	* configure.ac
         * src/install.py.in
         * .gitignore
+	* py-compile
+	* src/food_srch_res_dlg.py
+	* src/help.py
+	* src/plan_compute_dlg.py
+	* src/plan_win.py
 
 	Renamed configure.in to configure.ac.
 

@@ -1,6 +1,6 @@
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2012 Free Software Foundation, Inc.
+#  Copyright (C) 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ class PlanComputeDlg:
         self.ui.dialog.show()
 
     def start_later_than_end(self, start, end):
-        start, end = string.split(start, '-'), string.split(end, '-')
+        start, end = files.split(start, '-'), files.split(end, '-')
         year_start, year_end  = int(start[0]), int(end[0])
         month_start, month_end = int(start[1]), int(end[1])
         day_start, day_end = int(start[2]), int(end[2])
