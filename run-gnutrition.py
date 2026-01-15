@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 #  GNUtrition - a nutrition and diet analysis program.
 #  Copyright (C) 2001-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 Free Software Foundation, Inc.
+#  Copyright (C) 2010, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
