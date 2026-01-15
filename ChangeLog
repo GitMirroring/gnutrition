@@ -11,8 +11,8 @@
 
 	Renamed configure.in to configure.ac.
 
-	Resolved errors with configure.ac for Python 3 and wxPython,
-	replacing the obsolete Python2 and pygtk requirements.
+	Start porting of GNUtrition from Python 2 to Python 3 with
+	wxPython rather than pygtk.
 
 	Simplified how version strings are managed in configure.ac and
 	src/install.py.in.
