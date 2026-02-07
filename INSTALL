@@ -42,7 +42,7 @@ INSTALLATION
         autoconf
         ./configure --prefix=$HOME/gnutrition
         make
-        sudo make install
+        make install
 
 	To put gnutrition in your $PATH (for above example) add
 
