@@ -46,6 +46,7 @@
 	* src/test_gnutr_combobox.py
 	* src/util/log.py
 	* src/version.py
+	* README
 
 	Started updating install information to reflect Py3
 	version, along with small changes to instructions.
@@ -60,6 +61,8 @@
 	Fixed import errors in py3 that were okay in py2.
 
 	Started removal of pygtk and gobject.
+
+	Updated README to reflect new development efforts.
 
 2026-01-14  Anton McClure <asm@gnu.org>
 
