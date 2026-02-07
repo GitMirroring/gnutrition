@@ -1,6 +1,6 @@
 # GNUtrition - a nutrition and diet analysis program.
 # Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-# Copyright (C) 2012 Free Software Foundation, Inc.
+# Copyright (C) 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 
 from __future__ import absolute_import
 from __future__ import print_function
-import gtk
+import wx
 from . import nutr_composition_dlg_ui
 from . import store
 from . import database

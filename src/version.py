@@ -121,7 +121,7 @@ def get_database_archive(url):
 
 def check_version():
     from . import gnutr_consts
-    import install
+    from . import install
     this_ver = install.gnutr_version()
     if config.get_value('check_disabled') or not config.get_value('check_version'):
         return 0

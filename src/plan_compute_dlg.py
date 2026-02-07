@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2012, 2026 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 
 from __future__ import absolute_import
 import string
-import gtk
+import wx
 from . import plan_compute_dlg_ui
 from . import gnutr
 from . import gnutr_consts
@@ -41,7 +41,7 @@ class PlanComputeDlg:
         month_start, month_end = int(start[1]), int(end[1])
         day_start, day_end = int(start[2]), int(end[2])
         # Ex: start = 2012-12-31
-        #       end = 2013-1-1
+        #      end = 2013-1-1
         if year_start > year_end:
             return 1
         if month_start > month_end and not year_end > year_start: 

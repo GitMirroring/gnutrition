@@ -79,7 +79,7 @@ def toLogLevel(val):
     """
     level = logging.NOTSET
     levelerr = False
-    if isinstance(val, basestring):
+    if isinstance(val, str):
         if val.isdigit():
             level = int(val)
         else:

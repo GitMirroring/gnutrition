@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 from __future__ import absolute_import
 import os
 import stat
-import gtk
+import wx
 
 from . import save_as
 from . import gnutr_widgets
@@ -37,12 +37,12 @@ class FileSelectDlg:
         hbox1.pack_start(label1, False, True, 5)
 
 # what's this supposed to do?
-#         option_menu1 = gtk.OptionMenu()
-#         menu = gtk.Menu()
-#         menuitem1 = gtk.MenuItem('HTML (.html)')
-#         # FIXME: send a bug report to pygtk
-#         gtk.MenuShell.append(menu, menuitem1)
-#         option_menu1.set_menu(menu)
+#        option_menu1 = gtk.OptionMenu()
+#        menu = gtk.Menu()
+#        menuitem1 = gtk.MenuItem('HTML (.html)')
+#        # FIXME: send a bug report to pygtk
+#        gtk.MenuShell.append(menu, menuitem1)
+#        option_menu1.set_menu(menu)
 
         option_menu1 = gnutr_widgets.GnutrComboBox((('HTML (.html)',),), 0)
         

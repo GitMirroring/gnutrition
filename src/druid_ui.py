@@ -1,6 +1,6 @@
 # GNUtrition - a nutrition and diet analysis program.
 # Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-# Copyright (C) 2010 2012 Free Software Foundation, Inc.
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,9 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import absolute_import
-import pygtk
 pygtk.require("2.0")
-import gtk, gobject
+import wx
 
 def progress_timeout(pobj):
     pobj.pulse()

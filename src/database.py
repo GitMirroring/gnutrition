@@ -419,7 +419,7 @@ class Database:
         'insert_sql' is the SQL statement given to executemany.
         'table_name' serves as both the database table name and the data file name.
         """
-        import install
+        from . import install
         from os import path
         self.create_table(create_sql, table_name)
         data_file = path.join(install.idir, 'data', table_name.upper() + '.txt')

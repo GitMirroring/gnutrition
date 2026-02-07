@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright (C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,8 +20,7 @@ from __future__ import absolute_import
 import string
 import time
 
-import gobject
-import gtk
+import wx
 
 from . import plan_win_ui
 from . import gnutr

@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,9 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import
-import gobject
-import gtk
-import install
+import wx
+from . import install
 from . import gnutr_widgets
 
 def MyImageMenuItem(label_text, stock_image):
@@ -131,11 +130,11 @@ class RecipeWinUI:
         self.nutr_button = toolbar.append_button('gtk-execute', "Nutrients", tooltips, "Display recipe nutrient totals")
         self.goal_button = toolbar.append_button('gtk-properties', "Goals", tooltips, "Nutrition goals")
 
-#        icon9 = gtk.Image()
-#        icon9.set_from_stock('gtk-execute', gtk.ICON_SIZE_LARGE_TOOLBAR)
-#        self.graph_button = toolbar.append_item("Graph",
-#            "Display graph of recipe nutrient totals", None, icon9, 
-#            None, None)
+#       icon9 = gtk.Image()
+#       icon9.set_from_stock('gtk-execute', gtk.ICON_SIZE_LARGE_TOOLBAR)
+#       self.graph_button = toolbar.append_item("Graph",
+#           "Display graph of recipe nutrient totals", None, icon9, 
+#           None, None)
 
         self.toolbar_box.show_all()
 

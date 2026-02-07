@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright(C) 2000 - 2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright(C) 2000 - 2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 #
 
 from __future__ import absolute_import
-import gtk
+import wx
 import string
 from . import recipe_win_ui
 from . import gnutr
@@ -389,10 +389,10 @@ in the database. Do you want to overwrite it?""", self.parent)
         #ret = True
         #iter = self.ui.treemodel.get_iter_root()
         #while ret:
-        #    ingr = self.ui.treemodel.get_value(iter, 3)
+        #   ingr = self.ui.treemodel.get_value(iter, 3)
             #print 'ingredient', ingr
-        #    ingr_list.append(ingr)
-        #    ret = self.ui.treemodel.iter_next(iter)
+        #   ingr_list.append(ingr)
+        #   ret = self.ui.treemodel.iter_next(iter)
         for row in self.ui.treemodel:
             ingr_list.append(row[3])
         return ingr_list

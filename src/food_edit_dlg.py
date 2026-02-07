@@ -1,6 +1,6 @@
-#  Guntrition - a nutrition and diet analysis program.
-#  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+# Guntrition - a nutrition and diet analysis program.
+# Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import
-import gtk
+import wx
 from . import gnutr_consts
 from . import gnutr
 from . import food_edit_dlg_ui

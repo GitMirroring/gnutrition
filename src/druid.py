@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copryight (C) 2010 2012 2013 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2013, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,8 +18,7 @@
 
 from __future__ import absolute_import
 from time import sleep
-import gtk
-from gobject import idle_add
+import wx
 from . import druid_ui
 from . import config
 from . import person
@@ -95,8 +94,8 @@ class Druid:
             # a previous version of gnutrition was installed and the config
             # file from that installation still remains in user's home directory.
             # Note: sqlite.user is basename $HOME 
-            #       gnutrition MySQL setup asks for MySQL username and that
-            #       may be what is in the 'person' table for 'user_name'
+            #      gnutrition MySQL setup asks for MySQL username and that
+            #      may be what is in the 'person' table for 'user_name'
             db_uname = config.get_value('Username')
             if db_uname:
                 db_name = db_uname
@@ -120,9 +119,9 @@ class Druid:
             config.set_key_value('Age', age)
             config.set_key_value('Weight', weight)
             if name1 and name1 != new_name:
-#   If person changes 'Name' from previously used one to different one they
-#   should be asked (presented a dialog) about associating new name with
-#   imported (old) recipies. If yes, person table needs to be updated.
+#  If person changes 'Name' from previously used one to different one they
+#  should be asked (presented a dialog) about associating new name with
+#  imported (old) recipies. If yes, person table needs to be updated.
                 self.person.update_name(name1, new_name)
             elif not name1:
                 self.person.add_name(new_name)

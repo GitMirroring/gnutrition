@@ -18,7 +18,7 @@
 
 from __future__ import absolute_import
 import webbrowser
-import install
+from . import install
 import os
 import string
 from .util.log import LOG as log

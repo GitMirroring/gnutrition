@@ -1,6 +1,6 @@
-#  GNUtrition - a nutrition and diet analysis program.
-#  Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
-#  Copyright (C) 2010 2012 Free Software Foundation, Inc.
+# GNUtrition - a nutrition and diet analysis program.
+# Copyright(C) 2000-2002 Edgar Denny (edenny@skyweb.net)
+# Copyright (C) 2010, 2012, 2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,8 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import
-import gobject
-import gtk
+import wx
 
 from . import gnutr_widgets
 from . import date_widget
@@ -109,16 +108,16 @@ class PlanWinUI:
 
         self.compute_button = toolbar.append_button('gtk-execute', 'Compute', tooltips, 'Compute nutritient composition')
 
-#        icon6 = gtk.Image() 
-#        icon6.set_from_stock('gtk-execute', gtk.ICON_SIZE_LARGE_TOOLBAR)
-#        self.graph_button = toolbar.append_item('Graph',
-#            'Graph of nutrient composition', None, icon6, None, None)
+#       icon6 = gtk.Image() 
+#       icon6.set_from_stock('gtk-execute', gtk.ICON_SIZE_LARGE_TOOLBAR)
+#       self.graph_button = toolbar.append_item('Graph',
+#           'Graph of nutrient composition', None, icon6, None, None)
 
-#        icon7 = gtk.Image() 
-#        icon7.set_from_stock('gtk-execute', gtk.ICON_SIZE_LARGE_TOOLBAR)
-#        self.graph_button = toolbar.append_item('Variation',
-#            'Graph of variation of nutrient composition', None, icon7, 
-#            None, None)
+#       icon7 = gtk.Image() 
+#       icon7.set_from_stock('gtk-execute', gtk.ICON_SIZE_LARGE_TOOLBAR)
+#       self.graph_button = toolbar.append_item('Variation',
+#           'Graph of variation of nutrient composition', None, icon7, 
+#           None, None)
 
         self.toolbar_box.show_all()
 
@@ -153,19 +152,19 @@ class PlanWinUI:
 
         renderer = gtk.CellRendererText()
         column = gtk.TreeViewColumn('Time', renderer, text=0)
-#        column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
+#       column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
         self.treeview.append_column(column)
         renderer = gtk.CellRendererText()
         column = gtk.TreeViewColumn('Amount', renderer, text=1)
-#        column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
+#       column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
         self.treeview.append_column(column)
         renderer = gtk.CellRendererText()
         column = gtk.TreeViewColumn('Measure', renderer, text=2)
-#        column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
+#       column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
         self.treeview.append_column(column)
         renderer = gtk.CellRendererText()
         column = gtk.TreeViewColumn('Recipe or Food', renderer, text=3)
-#        column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
+#       column.set_sizing(gtk.TREE_VIEW_COLUMN_RESIZEABLE)
         self.treeview.append_column(column)
 
         scrolledwindow1.add(self.treeview)
