@@ -18,7 +18,8 @@
 
 from __future__ import absolute_import
 from __future__ import print_function
-import shelve, install
+import shelve
+from . import install
 from os import environ, path, access, F_OK, mkdir, name
 
 if name == 'nt':

@@ -4,16 +4,19 @@
 	* run-gnutrition.py
 	* ChangeLog
 	* .gitignore
+	* src/config.py
 
 	Started updating install information to reflect Py3
 	version, along with small changes to instructions.
 
-	Fix issue preventing "share/gnutrition/" from being found
+	Fixed issue preventing "share/gnutrition/" from being found
 	in most cases.
 
 	Fixed space/tab issues in ChangeLog.
 
 	Added configure~ to gitignore.
+
+	Fixed import errors in py3 that were okay in py2.
 
 2026-01-14  Anton McClure <asm@gnu.org>
 
