@@ -1,14 +1,24 @@
 2026-02-07  Anton McClure <asm@gnu.org>
 
 	* INSTALL
+	* run-gnutrition.py
+	* ChangeLog
+	* .gitignore
 
 	Started updating install information to reflect Py3
-        version, along with small changes to instructions.
+	version, along with small changes to instructions.
+
+	Fix issue preventing "share/gnutrition/" from being found
+	in most cases.
+
+	Fixed space/tab issues in ChangeLog.
+
+	Added configure~ to gitignore.
 
 2026-01-14  Anton McClure <asm@gnu.org>
 
 	* configure.ac
-        * .gitignore
+	* .gitignore
 	* py-compile
 	* rpm/remove_prefix.py
 	* run-gnutrition.py
@@ -32,7 +42,7 @@
 	* src/gnutr_stock.py
 	* src/gnutr_widgets.py
 	* src/help.py
-        * src/install.py.in
+	* src/install.py.in
 	* src/mysql.py
 	* src/nutr_composition_dlg.py
 	* src/nutr_composition_dlg_ui.py
@@ -78,7 +88,7 @@
 
 2013-03-27  Adam Rakowski <foo-script@o2.pl>
 
-        * src/config.py
+	* src/config.py
 	* src/druid.py
 	* src/run_app.py 
 

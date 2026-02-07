@@ -8,3 +8,4 @@ doc/gnutrition.log
 Makefile
 rpm/gnutrition.spec
 src/install.py
+configure~

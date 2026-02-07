@@ -17,13 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This file is installed as $(prefix)/bin/gnutrition and 
+# This file is installed as $(prefix)/bin/gnutrition
 
 from __future__ import absolute_import
-import sys, os
+import sys, pathlib, os
 
-os.chdir(os.path.abspath(os.path.sep.join( ('..', 'share', 'gnutrition') )) )
-a=os.path.abspath('.')
-sys.path.append(os.path.abspath(a))
+os.chdir(pathlib.Path(__file__).resolve().parent.parent / 'share' / 'gnutrition')
+sys.path.append(os.getcwd())
 
 import src.run_app
