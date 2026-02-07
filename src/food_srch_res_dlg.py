@@ -17,7 +17,6 @@
 
 from __future__ import absolute_import
 import string
-import gobject
 import wx
 from . import food_srch_res_dlg_ui
 from . import gnutr

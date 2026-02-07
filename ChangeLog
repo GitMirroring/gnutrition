@@ -59,6 +59,8 @@
 
 	Fixed import errors in py3 that were okay in py2.
 
+	Started removal of pygtk and gobject.
+
 2026-01-14  Anton McClure <asm@gnu.org>
 
 	* configure.ac

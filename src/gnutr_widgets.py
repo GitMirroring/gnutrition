@@ -17,7 +17,6 @@
 
 from __future__ import absolute_import
 import wx
-import gobject
 from .util.log import LOG as log
 debug = log.debug
 info = log.info
