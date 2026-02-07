@@ -2,13 +2,13 @@ REQUIREMENTS
 
     GNUTRITION is written is Python. It requires the following:
 
-	  * Python >= 2.6  (Python 3.x will not work with current sources)
+      * Python >= 3.13  (Python 2.x will not work with current sources)
 
-      * The Python bindings to GTK+ and GNOME.
+      * The Python bindings to GTK+ and GNOME.               [Needs updated]
         On Fedora 15 the package name is pygtk2
 
       For documentation:
-      * docbook-utils for db2html command  (not critical)
+      * docbook-utils for db2html command  (not critical)    [Needs updated]
 
 UPGRADING
 
@@ -25,6 +25,7 @@ INSTALLATION
 
     To compile and install gnutrition
 
+        autoconf
         ./configure
         make
         sudo make install
@@ -37,10 +38,11 @@ INSTALLATION
     Use the `--prefix' command line option to install elsewhere. 
     For example to install in your home directory under gnutrition:
 		
-		mkdir ~/gnutrition
+        mkdir ~/gnutrition
+        autoconf
         ./configure --prefix=$HOME/gnutrition
         make
-        make install
+        sudo make install
 
 	To put gnutrition in your $PATH (for above example) add
 

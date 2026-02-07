@@ -1,3 +1,10 @@
+2026-02-07  Anton McClure <asm@gnu.org>
+
+	* INSTALL
+
+	Started updating install information to reflect Py3
+        version, along with small changes to instructions.
+
 2026-01-14  Anton McClure <asm@gnu.org>
 
 	* configure.ac
