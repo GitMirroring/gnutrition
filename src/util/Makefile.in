@@ -41,11 +41,8 @@ tests:
 
 install:
 	mkdir -p ${datadir}/gnutrition/src/util
-	${INSTALL} -m 644 -c *.py *.py[co] ${datadir}/gnutrition/src/util
-
-clean:
-	rm -f *.py[co] test/*.py[co]
+	${INSTALL} -m 644 -c *.py *.py ${datadir}/gnutrition/src/util
 
 uninstall:
-	rm -f ${datadir}/gnutrition/src/*.py ${datadir}/gnutrition/src/*.pyo
+	rm -f ${datadir}/gnutrition/src/*.py
 	rm -rf ${datadir}/gnutrition/src

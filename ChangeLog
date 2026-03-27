@@ -1,3 +1,27 @@
+2026-03-26  Anton McClure <asm@aperture.akron.oh.us>
+
+	* doc/Makefile.in
+	* doc/apple.jpg
+	* doc/apple_result.jpg
+	* doc/db_login.jpg
+	* doc/details.jpg
+	* doc/food_srch.jpg
+	* doc/gnutrition.sgml
+	* doc/main.jpg
+	* doc/nutr_srch.jpg
+	* doc/single.jpg
+	* doc/topic.dat
+	* configure.ac
+	* INSTALL
+	* src/Makefile.in
+	* src/util/Makefile.in
+
+	Removed old doc/ in preparation for restructuring.
+
+	Fixed some issues preventing build.
+
+	Updated install instructions to reflect current plans.
+
 2026-02-07  Anton McClure <asm@gnu.org>
 
 	* INSTALL

@@ -89,7 +89,6 @@ AC_CONFIG_FILES([src/install.py\
 	src/util/Makefile\
 	data/Makefile\
 	pixmaps/Makefile\
-	doc/Makefile\
 	rpm/Makefile\
 	rpm/gnutrition.spec\
 	debian/Makefile])
