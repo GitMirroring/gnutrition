@@ -1,0 +1,107 @@
+.TH GNUTRITION 1 "September 2026" "GNUtrition 0.1" "User Commands"
+.SH NAME
+GNUtrition \- nutrition tracking with USDA food data
+.SH SYNOPSIS
+.B gnutrition
+.RI [ OPTION ]...
+.SH DESCRIPTION
+GNUtrition is a nutrition tracker that uses USDA food data stored in a
+local SQLite database. With no options, it starts an interactive ncurses
+interface. Command-line options allow searching foods, showing nutrient
+information, and logging daily intake.
+.SH OPTIONS
+.TP
+.BR \\-search =\, QUERY "," \-s " " QUERY
+Search for foods matching QUERY.
+.TP
+.BR \\-info =\, CODE "," \-i " " CODE
+Show nutrient information for the specified food code.
+.TP
+.BR \\-log =\, CODE "," \-l " " CODE
+Log the specified food code for the selected date.
+.TP
+.BR \\-quantity =\, NUM "," \-n " " NUM
+Number of servings to log (default: 1.0). Used with
+.BR \-l .
+.TP
+.BR \\-budget "," \-b
+Show today's food-group budget summary.
+.TP
+.BR \\-calories =\, KCAL "," \-c " " KCAL
+Set the daily calorie target (default: 2000).
+.TP
+.BR \\-age =\, YEARS "," \-a " " YEARS
+Provide age in years for calorie estimation.
+.TP
+.BR \\-height =\, CM "," \-H " " CM
+Provide height in centimeters for calorie estimation.
+.TP
+.BR \\-weight =\, KG "," \-w " " KG
+Provide weight in kilograms for calorie estimation.
+.TP
+.BR \\-activity =\, LEVEL "," \-A " " LEVEL
+Set activity level: sedentary, light, moderate, very-active, or extra-active.
+.TP
+.BR \\-date =\, DATE "," \-d " " DATE
+Set the log/budget date (default: today).
+.TP
+.BR \\-db =\, PATH "," \-D " " PATH
+Set the path to the USDA food database (default: food.db).
+.TP
+.BR \\-profile-db =\, PATH "," \-P " " PATH
+Set the path to the profile/log database.
+.TP
+.BR \\-help "," \-h
+Display help and exit.
+.TP
+.BR \\-version "," \-V
+Output version information and exit.
+.SH FILES
+.TP
+.I food.db
+USDA food database built by build_db.sh.
+.TP
+.I $XDG_DATA_HOME/gnutrition/log.db
+Per-user profile and log database.
+.SH EXAMPLES
+.TP
+Search for foods containing "oat":
+.B gnutrition \-\-search="oat"
+.TP
+Show nutrient details for food code 123456:
+.B gnutrition \-\-info=123456
+.TP
+Log a food for a specific date:
+.B gnutrition \-\-log=123456 \-\-date=01/15/2026
+.TP
+Log 2.5 servings of a food:
+.B gnutrition \-\-log=123456 \-\-quantity=2.5
+.SH INTERACTIVE MODE
+When started with no command-line options, GNUtrition opens an ncurses
+interface. The main screen shows the daily food-group budget. Press:
+.TP
+.B s
+Search for foods. Use Up/Down to select a result and Enter to view its
+nutrient details. From the detail screen, press Tab to edit servings and
+date, then
+.B l
+to log the food.
+.TP
+.B l
+View the food log. Use Left/Right arrows to navigate between dates that
+have logged entries.
+.TP
+.B p
+Edit your profile (age, height, weight, activity level).
+.TP
+.B q
+Quit.
+.SH REPORTING BUGS
+Report bugs to bug-gnutrition@gnu.org.
+.SH COPYRIGHT
+Copyright \(co 2026 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+.SH SEE ALSO
+.BR sqlite3 (1)
