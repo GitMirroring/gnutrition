@@ -1,0 +1,52 @@
+Building GNUtrition
+-------------------
+
+From the top-level directory:
+
+If you're building from a git checkout first run autoreconf -i.
+Skip that step if you're building from a release tarball.
+
+Next, run:
+
+    ./configure
+
+Run --configure --help to see all available options.
+
+Then run:
+
+    make.
+
+To install system-wide (default prefix is /usr/local):
+
+    sudo make install
+
+To change the installation prefix:
+
+    make PREFIX=/usr
+    sudo make PREFIX=/usr install
+
+
+Building the USDA database
+--------------------------
+
+Run the script in the top-level directory:
+
+    ./build_db.sh
+
+This downloads USDA data and generates food.db to
+$HOME/.local/share/gnutrition/.
+
+Running GNUtrition
+------------------
+
+If food.db is in $HOME/.local/share/gnutrition/:
+
+    gnutrition
+
+To specify a different database location:
+
+    gnutrition --db=/path/to/food.db
+
+The per-user log database is stored at
+$XDG_DATA_HOME/gnutrition/log.db (or ~/.local/share/gnutrition/log.db
+if XDG_DATA_HOME is not set). The USDA database is never modified.
