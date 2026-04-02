@@ -18,6 +18,10 @@
 
 set -e
 
+dir="$HOME/.local/share/gnutrition"
+mkdir -p "$dir"
+cd "$dir"
+
 # Check for required commands
 missing=()
 for cmd in wget sha512sum libreoffice sqlite3; do
