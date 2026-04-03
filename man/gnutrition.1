@@ -46,7 +46,7 @@ Set activity level: sedentary, light, moderate, very-active, or extra-active.
 Set the log/budget date (default: today).
 .TP
 .BR \\-db =\, PATH "," \-D " " PATH
-Set the path to the USDA food database (default: food.db).
+Set the path to the USDA food database (default: $HOME/.local/gnutrition/food.db).
 .TP
 .BR \\-profile-db =\, PATH "," \-P " " PATH
 Set the path to the profile/log database.
@@ -58,7 +58,7 @@ Display help and exit.
 Output version information and exit.
 .SH FILES
 .TP
-.I food.db
+.I $HOME/.local/share/gnutrition/food.db
 USDA food database built by build_db.sh.
 .TP
 .I $XDG_DATA_HOME/gnutrition/log.db
