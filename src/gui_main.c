@@ -129,7 +129,8 @@ ensure_dir (const char *path)
 int
 main (int argc, char **argv)
 {
-  const char *db_path;
+  char *db_path_alloc = NULL;
+  const char *db_path = NULL;
   char *log_path;
   sqlite3 *food_db;
   sqlite3 *log_db;
@@ -140,7 +141,26 @@ main (int argc, char **argv)
   bindtextdomain ("gnutrition", LOCALEDIR);
   textdomain ("gnutrition");
 
-  db_path = "food.db";
+/* Set default db_path */
+  if (!db_path)
+    {
+      const char *home = getenv ("HOME");
+      if (home)
+        {
+          size_t len = strlen (home) + strlen ("/.local/share/gnutrition/food.db") + 1;
+          db_path_alloc = malloc (len);
+          if (db_path_alloc)
+            {
+              snprintf (db_path_alloc, len, "%s/.local/share/gnutrition/food.db", home);
+              db_path = db_path_alloc;
+            }
+        }
+      if (!db_path)
+        db_path = "food.db";
+    }
+
+  food_db = db_open (db_path);
+
   calories = 2000;
 
   /* Open the food database.  */

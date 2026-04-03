@@ -98,7 +98,7 @@ print_help (void)
   printf (_("  -d, --date=DATE      date for log/budget "
           "(default: today)\n"));
   printf (_("  -D, --db=PATH        path to food database "
-          "(default: food.db)\n"));
+          "(default: $HOME/.local/share/gnutrition/food.db)\n"));
   printf (_("  -P, --profile-db=PATH\n"));
   printf (_("                       path to profile/log database\n"));
   printf (_("                         (default: "
@@ -438,7 +438,8 @@ int
 main (int argc, char **argv)
 {
   int c;
-  const char *db_path;
+  char *db_path_alloc = NULL;
+  const char *db_path = NULL;
   const char *search_query;
   const char *date;
   char *date_alloc;
@@ -470,7 +471,26 @@ main (int argc, char **argv)
   bindtextdomain ("gnutrition", LOCALEDIR);
   textdomain ("gnutrition");
 
-  db_path = "food.db";
+/* Set default db_path */
+  if (!db_path)
+    {
+      const char *home = getenv ("HOME");
+      if (home)
+        {
+          size_t len = strlen (home) + strlen ("/.local/share/gnutrition/food.db") + 1;
+          db_path_alloc = malloc (len);
+          if (db_path_alloc)
+            {
+              snprintf (db_path_alloc, len, "%s/.local/share/gnutrition/food.db", home);
+              db_path = db_path_alloc;
+            }
+        }
+      if (!db_path)
+        db_path = "food.db";
+    }
+
+  food_db = db_open (db_path);
+
   search_query = NULL;
   date = NULL;
   date_alloc = NULL;
