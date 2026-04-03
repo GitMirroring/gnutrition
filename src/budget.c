@@ -162,14 +162,14 @@ budget_print (const struct daily_budget *budget,
           "----------", "----------");
   printf (_("%-20s %8.1f %s %8.1f %s %8.1f %s\n"),
           _("Vegetables"),
-          budget->vegetables, _("cp"),
-          consumed->vegetables, _("cp"),
-          budget->vegetables - consumed->vegetables, _("cp"));
+          budget->vegetables, _("c "),
+          consumed->vegetables, _("c "),
+          budget->vegetables - consumed->vegetables, _("c "));
   printf (_("%-20s %8.1f %s %8.1f %s %8.1f %s\n"),
           _("Fruits"),
-          budget->fruits, _("cp"),
-          consumed->fruits, _("cp"),
-          budget->fruits - consumed->fruits, _("cp"));
+          budget->fruits, _("c "),
+          consumed->fruits, _("c "),
+          budget->fruits - consumed->fruits, _("c "));
   printf (_("%-20s %8.1f %s %8.1f %s %8.1f %s\n"),
           _("Grains"),
           budget->grains, _("oz"),
@@ -177,9 +177,9 @@ budget_print (const struct daily_budget *budget,
           budget->grains - consumed->grains, _("oz"));
   printf (_("%-20s %8.1f %s %8.1f %s %8.1f %s\n"),
           _("Dairy"),
-          budget->dairy, _("cp"),
-          consumed->dairy, _("cp"),
-          budget->dairy - consumed->dairy, _("cp"));
+          budget->dairy, _("c "),
+          consumed->dairy, _("c "),
+          budget->dairy - consumed->dairy, _("c "));
   printf (_("%-20s %8.1f %s %8.1f %s %8.1f %s\n"),
           _("Protein Foods"),
           budget->protein, _("oz"),
@@ -187,7 +187,7 @@ budget_print (const struct daily_budget *budget,
           budget->protein - consumed->protein, _("oz"));
   printf (_("%-20s %8.1f %s %8.1f %s %8.1f %s\n"),
           _("Oils"),
-          budget->oils, _(" g"),
-          consumed->oils, _(" g"),
-          budget->oils - consumed->oils, _(" g"));
+          budget->oils, _("g "),
+          consumed->oils, _("g "),
+          budget->oils - consumed->oils, _("g "));
 }

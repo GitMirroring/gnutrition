@@ -149,22 +149,22 @@ draw_budget (sqlite3 *food_db, sqlite3 *log_db, int start_row,
   mvprintw (row++, 2, "%-20s %10s %10s %10s",
             "--------------------", "----------",
             "----------", "----------");
-  mvprintw (row++, 2, _("%-20s %7.1f cp %7.1f cp %7.1f cp"),
+  mvprintw (row++, 2, _("%-20s %7.1f c  %7.1f c  %7.1f c"),
             _("Vegetables"), budget.vegetables,
             consumed.vegetables, budget.vegetables - consumed.vegetables);
-  mvprintw (row++, 2, _("%-20s %7.1f cp %7.1f cp %7.1f cp"),
+  mvprintw (row++, 2, _("%-20s %7.1f c  %7.1f c  %7.1f c"),
             _("Fruits"), budget.fruits,
             consumed.fruits, budget.fruits - consumed.fruits);
   mvprintw (row++, 2, _("%-20s %7.1f oz %7.1f oz %7.1f oz"),
             _("Grains"), budget.grains,
             consumed.grains, budget.grains - consumed.grains);
-  mvprintw (row++, 2, _("%-20s %7.1f cp %7.1f cp %7.1f cp"),
+  mvprintw (row++, 2, _("%-20s %7.1f c  %7.1f c  %7.1f c"),
             _("Dairy"), budget.dairy,
             consumed.dairy, budget.dairy - consumed.dairy);
   mvprintw (row++, 2, _("%-20s %7.1f oz %7.1f oz %7.1f oz"),
             _("Protein Foods"), budget.protein,
             consumed.protein, budget.protein - consumed.protein);
-  mvprintw (row++, 2, _("%-20s %7.1f  g %7.1f  g %7.1f  g"),
+  mvprintw (row++, 2, _("%-20s %7.1f g  %7.1f g  %7.1f g"),
             _("Oils"), budget.oils,
             consumed.oils, budget.oils - consumed.oils);
   return row - start_row;
